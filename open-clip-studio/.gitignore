@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Build output
+client/.vite/
+
+# Uploads, exports & generated files
+server/uploads/
+server/exports/
+server/samples/
+server/assets/sfx/*.wav
+
+# Test artifacts
+test_*.mp4
+test_*.wav
+test_*.jpg
+frame_*.jpg
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Large ML Weights (auto-downloaded from Hugging Face if needed)
+*.onnx
+!server/services/models/face_detection_yunet_2023mar.onnx
+
+# Logs
+*.log
+npm-debug.log*

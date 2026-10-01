@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Ultra-Premium Lowkey Obsidian Glass Palette */
+  --bg-main: #07090e;
+  --bg-card: rgba(14, 18, 28, 0.7);
+  --bg-card-hover: rgba(20, 26, 42, 0.85);
+  --bg-panel: rgba(11, 14, 23, 0.82);
+  --bg-input: rgba(7, 10, 18, 0.85);
+  --bg-surface-elevated: rgba(255, 255, 255, 0.04);
+
+  /* Hairline Specular Borders */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-medium: rgba(255, 255, 255, 0.12);
+  --border-highlight: rgba(255, 255, 255, 0.18);
+  --border-focus: rgba(255, 255, 255, 0.35);
+
+  /* Clean Lowkey Accents */
+  --accent-primary: #f8fafc;
+  --accent-indigo: #6366f1;
+  --accent-cyan: #38bdf8;
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-violet: #8b5cf6;
+
+  /* Typography Colors */
+  --text-main: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #8492a6;
+  --text-dim: #505c6e;
+
+  /* Radii */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Specular Glass Shadows */
+  --glass-specular: inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  --glass-specular-hover: inset 0 1px 0 0 rgba(255, 255, 255, 0.18);
+  --shadow-card: 0 16px 36px -12px rgba(0, 0, 0, 0.65), var(--glass-specular);
+  --shadow-card-hover: 0 24px 48px -12px rgba(0, 0, 0, 0.85), var(--glass-specular-hover);
+  --shadow-phone: 
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 25px 60px -15px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+  /* Fonts */
+  --font-heading: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-main);
+  background-image: 
+    radial-gradient(ellipse 90% 60% at 50% -25%, rgba(99, 102, 241, 0.08) 0%, transparent 70%),
+    radial-gradient(circle at 85% 15%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 15% 85%, rgba(139, 92, 246, 0.04) 0%, transparent 50%);
+  background-attachment: fixed;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+input, textarea, select {
+  font-family: inherit;
+  outline: none;
+}
+
+/* Elegant Hairline Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* True Glassmorphism Classes */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.glass-panel {
+  background: var(--bg-panel);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--glass-specular);
+}
+
+/* Clean Specular Text */
+.text-specular {
+  background: linear-gradient(180deg, #ffffff 30%, rgba(255, 255, 255, 0.68) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Premium Linear/Apple Style Primary Button */
+.btn-primary {
+  background: #ffffff;
+  color: #07090e;
+  font-weight: 600;
+  font-size: 0.84rem;
+  letter-spacing: -0.1px;
+  padding: 9px 18px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.9),
+    0 8px 16px -4px rgba(255, 255, 255, 0.18);
+  border: 1px solid #ffffff;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #f1f5f9;
+  transform: translateY(-1px);
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.15),
+    0 12px 24px -4px rgba(255, 255, 255, 0.25);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Lowkey Glass Secondary Button */
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  font-weight: 500;
+  font-size: 0.82rem;
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-medium);
+  color: #ffffff;
+}
+
+.btn-secondary:active:not(:disabled) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Lowkey Badges */
+.badge-minimal {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-weight: 500;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
+.badge-tag {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+/* Custom Precision Range Sliders */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+input[type="range"]:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4), 0 0 8px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), 0 0 12px rgba(255, 255, 255, 0.7);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+/* Titanium & Glass Smartphone Frame */
+.smartphone-mockup {
+  position: relative;
+  background: #020306;
+  border-radius: 44px;
+  box-shadow: var(--shadow-phone);
+  border: 8px solid #131722;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.smartphone-island {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 68px;
+  height: 16px;
+  background: #000000;
+  border-radius: 10px;
+  z-index: 10;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.smartphone-homebar {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 76px;
+  height: 3.5px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Subtle Pulse */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.95); }
+}
+
+.pulse-dot {
+  animation: pulse-subtle 2.5s infinite ease-in-out;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spin-animate {
+  animation: spin 0.8s linear infinite;
+}
+
+/* ───────────────────────── Mobile / iPhone Safari ───────────────────────── */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app-root {
+  min-height: 100dvh !important;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+video {
+  max-width: 100%;
+}
+
+@keyframes progress-indeterminate {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+
+.progress-indeterminate {
+  animation: progress-indeterminate 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress-indeterminate { animation: none; }
+}
+
+@media (max-width: 900px) {
+  /* Stack the studio: preview on top, controls below */
+  .studio-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 18px !important;
+  }
+
+  .studio-panel {
+    min-height: 0 !important;
+    padding: 16px !important;
+  }
+
+  .studio-preview-frame {
+    max-width: 100%;
+  }
+
+  .studio-preview-frame[data-aspect="16:9"] {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+  }
+
+  .studio-preview-frame[data-aspect="1:1"] {
+    width: min(100%, 380px) !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1;
+  }
+
+  .studio-preview-frame[data-aspect="9:16"] {
+    width: min(300px, 78vw) !important;
+    height: auto !important;
+    aspect-ratio: 330 / 586;
+  }
+}
+
+@media (max-width: 640px) {
+  /* iOS zooms into any input under 16px when it gets focus */
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  .app-header {
+    margin: calc(8px + env(safe-area-inset-top)) 10px 6px 10px !important;
+    padding: 8px 12px !important;
+  }
+
+  .app-breadcrumb,
+  .app-status {
+    display: none !important;
+  }
+
+  .page-shell {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    margin-top: 16px !important;
+  }
+
+  .hero-title {
+    font-size: 1.8rem !important;
+    letter-spacing: -0.5px !important;
+  }
+
+  .processing-panel {
+    padding: 24px 16px !important;
+  }
+
+  .modal-backdrop {
+    padding: 10px !important;
+    align-items: flex-end !important;
+  }
+
+  .modal-panel {
+    padding: 22px 16px calc(18px + env(safe-area-inset-bottom)) 16px !important;
+    max-height: calc(100dvh - 20px - env(safe-area-inset-top)) !important;
+  }
+
+  .export-actions > * {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+
+  .studio-export-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 18px !important;
+    font-size: 0.92rem !important;
+  }
+
+  /* Comfortable 44px touch targets */
+  .btn-primary,
+  .btn-secondary {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Header buttons become icon-only on phones */
+  .app-header .hide-xs {
+    display: none;
+  }
+
+  .app-header .btn-secondary {
+    min-width: 44px;
+    justify-content: center;
+  }
+}

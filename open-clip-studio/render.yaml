@@ -1,0 +1,36 @@
+# Render Blueprint: https://render.com/docs/blueprint-spec
+# Deploy: Render Dashboard -> New -> Blueprint -> pick this repository.
+services:
+  - type: web
+    name: open-clip-studio
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    # Whisper + FFmpeg need RAM: "standard" (2 GB) is the smallest plan that
+    # transcribes and renders 1080p reliably. 512 MB plans (free/starter) run
+    # out of memory during transcription/rendering.
+    plan: standard
+    region: frankfurt
+    branch: main
+    autoDeploy: true
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # Local Whisper model baked into the image (base.en = English).
+      - key: WHISPER_MODEL
+        value: base.en
+      # Uploaded and rendered files are deleted after this many hours.
+      - key: FILE_TTL_HOURS
+        value: "12"
+      # Optional cloud AI keys (leave empty to run 100% locally on the server).
+      # Groq makes transcription of long videos much faster.
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
+      # Optional: base64 of a Netscape cookies.txt for YouTube URL imports.
+      - key: YOUTUBE_COOKIES_BASE64
+        sync: false

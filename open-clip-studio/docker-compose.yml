@@ -1,0 +1,21 @@
+services:
+  open-clip-studio:
+    build: .
+    container_name: clipso-studio
+    restart: unless-stopped
+    ports:
+      - "5000:10000"
+    environment:
+      - PORT=10000
+      - NODE_ENV=production
+    env_file:
+      - path: .env
+        required: false
+    volumes:
+      # Named volumes inherit the image's ownership (the non-root "node" user)
+      - uploads:/app/server/uploads
+      - exports:/app/server/exports
+
+volumes:
+  uploads:
+  exports:
